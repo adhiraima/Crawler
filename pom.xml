@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -27,10 +28,6 @@
 		  </executions>
 		  <configuration>
 		    <mainClass>com.crawler.buildit.Crawler</mainClass>
-		    <arguments>
-		      <argument>foo</argument>
-		      <argument>bar</argument>
-		    </arguments>
 		  </configuration>
 		</plugin>
     </plugins>
