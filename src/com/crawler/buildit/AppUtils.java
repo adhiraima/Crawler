@@ -14,9 +14,9 @@ public class AppUtils {
 	
 	public static void getLinks(WebPage page, String string) {
 		int currIndex = 0;
-		while (currIndex != -1 || currIndex <= string.length()) {
+		while (-1 != currIndex || currIndex <= string.length()) {
 			currIndex = string.indexOf(ApplicationConstants.HREF_MARKER, currIndex);
-			if (currIndex == -1) return;
+			if (-1 == currIndex) return;
 			if (currIndex + 6 > string.length() || string.indexOf("\"", currIndex + 6) < 0) return;
 			String href = string.substring(currIndex + 6, string.indexOf("\"", currIndex + 6));
 			currIndex = currIndex + 6 + href.length();

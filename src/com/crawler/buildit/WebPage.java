@@ -77,9 +77,9 @@ public class WebPage {
 			return false;
 		WebPage other = (WebPage) obj;
 		if (pageURL == null) {
-			if (other.pageURL != null)
+			if (other.getPageURL() != null)
 				return false;
-		} else if (!pageURL.equals(other.pageURL))
+		} else if (!pageURL.equals(other.getPageURL()))
 			return false;
 		return true;
 	}
