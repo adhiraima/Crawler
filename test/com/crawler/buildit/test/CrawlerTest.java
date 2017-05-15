@@ -72,7 +72,8 @@ public class CrawlerTest {
 		System.out.println("internal links size >>> " + page.getInternalLinks().size());
 		System.out.println("External links size >>> " + page.getExternalLinks().size());
 		assertEquals(1, page.getExternalLinks().size());
-		assertEquals(6, page.getInternalLinks().size());
+		assertEquals(7, page.getInternalLinks().size());
+		System.out.println(page);
 	}
 
 }

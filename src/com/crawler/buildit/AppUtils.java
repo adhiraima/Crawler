@@ -34,9 +34,9 @@ public class AppUtils {
 	}
 	
 	private static String fineTuneLink(String url) {
-		//this method removes the bookmark links and cleans up dirty urls
+		//this method removes the bookmark links and cleaup dirty urls
 		if (url.endsWith("/")) {
-			url = url.substring(0, url.length() - 1);
+			url = url.substring(0, url.lastIndexOf("/"));
 		}
 		if (url.contains(ApplicationConstants.HASHTAG)) {
 			url = url.substring(0, url.indexOf(ApplicationConstants.HASHTAG));
