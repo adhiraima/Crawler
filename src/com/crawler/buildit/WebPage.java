@@ -79,7 +79,7 @@ public class WebPage {
 		if (pageURL == null) {
 			if (other.getPageURL() != null)
 				return false;
-		} else if (!pageURL.equals(other.getPageURL()))
+		} else if (!pageURL.toString().equalsIgnoreCase(other.getPageURL().toString()))
 			return false;
 		return true;
 	}

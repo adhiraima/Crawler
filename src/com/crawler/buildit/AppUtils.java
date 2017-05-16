@@ -27,34 +27,32 @@ public class AppUtils {
 					|| href.contains(ApplicationConstants.EMBED_TAG)) {
 				continue;
 			}
-			href = fineTuneLink(href);
-			//System.out.println("the href is: " + href);
-			classifyLinks(page, href);
+			classifyLinks(page, fineTuneLink(href.trim()));
 		}
 	}
 	
 	private static String fineTuneLink(String url) {
 		//this method removes the bookmark links and cleaup dirty urls
-		if (url.endsWith("/")) {
-			url = url.substring(0, url.lastIndexOf("/"));
-		}
 		if (url.contains(ApplicationConstants.HASHTAG)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.HASHTAG));
+			url = url.substring(0, url.indexOf(ApplicationConstants.HASHTAG)).trim();
 		}
 		if (url.contains(ApplicationConstants.QUESTION_MARK)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.QUESTION_MARK));
+			url = url.substring(0, url.indexOf(ApplicationConstants.QUESTION_MARK)).trim();
 		}
 		if (url.contains(ApplicationConstants.SINGLE_QUOTE)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.SINGLE_QUOTE));
+			url = url.substring(0, url.indexOf(ApplicationConstants.SINGLE_QUOTE)).trim();
 		}
 		if (url.contains(ApplicationConstants.SEMI_COLON)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.SEMI_COLON));
+			url = url.substring(0, url.indexOf(ApplicationConstants.SEMI_COLON)).trim();
 		}
 		if (url.contains(ApplicationConstants.COMMA)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.COMMA));
+			url = url.substring(0, url.indexOf(ApplicationConstants.COMMA)).trim();
 		}
 		if (url.contains(ApplicationConstants.LESS_THAN)) {
-			url = url.substring(0, url.indexOf(ApplicationConstants.LESS_THAN));
+			url = url.substring(0, url.indexOf(ApplicationConstants.LESS_THAN)).trim();
+		}
+		if (url.endsWith("/")) {
+			url = url.substring(0, url.lastIndexOf("/")).trim();
 		}
 		return url;
 	}
@@ -75,6 +73,8 @@ public class AppUtils {
 			page.addResources(url);
 		} else if (url.getHost().equalsIgnoreCase(page.getPageURL().getHost())) {
 			//internal link
+			//System.out.println("adding  link >>>>>>> " + link + " to " + page.getPageURL().toString());
+
 			WebPage subPage = new WebPage(url, page.getDepth() + 1);
 			page.addInternalLink(subPage);
 		} else {

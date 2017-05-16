@@ -4,6 +4,8 @@
 package com.crawler.buildit.test;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
@@ -69,11 +71,8 @@ public class CrawlerTest {
 	@Test
 	public void getLinksTest() {
 		AppUtils.getLinks(page, testHTML);
-		System.out.println("internal links size >>> " + page.getInternalLinks().size());
-		System.out.println("External links size >>> " + page.getExternalLinks().size());
 		assertEquals(1, page.getExternalLinks().size());
-		assertEquals(7, page.getInternalLinks().size());
-		System.out.println(page);
+		assertEquals(6, page.getInternalLinks().size());
 	}
 
 }
